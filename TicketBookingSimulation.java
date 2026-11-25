@@ -153,30 +153,34 @@ import java.util.Scanner;
 public class TicketBookingSimulation {
     public static void main(String[] args) {
         Scanner kbd = new Scanner(System.in);
-        System.out.print(" --- Ticket Booking System ---");
+        System.out.println(" --- Ticket Booking System ---");
         System.out.println("[1] Reserve Movie Ticket");
         System.out.println("[2] Cancel Movie Ticket");
         System.out.println("[3] Check Available Seats");
         System.out.println("[4] Exit");
-        System.out.print("Select an option: ");
-        int choice = Integer.parseInt(kbd.nextLine());
-        if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 0) {
-            switch (choice) {
-                case 1:
-                    ReserveMovieTicket();
-                    break;
-                case 2:
-                    CancelMovieTicket();
-                    break;
-                case 3:
-                    CheckAvailableSeats();
-                    break;
-                case 4:
-                    System.out.println(" Thank you for using the Ticket Booking System! ");
-                    System.exit(0);
-                    break;
-            } // switch statement in if statement
-        }  // if statement in while
+        while (true) {
+            System.out.print("Select an option: ");
+            int choice = Integer.parseInt(kbd.nextLine());
+            if (choice == 1 || choice == 2 || choice == 3 || choice == 4) {
+                switch (choice) {
+                    case 1:
+                        ReserveMovieTicket();
+                        break;
+                    case 2:
+                        CancelMovieTicket();
+                        break;
+                    case 3:
+                        CheckAvailableSeats();
+                        break;
+                    case 4:
+                        System.out.println(" Thank you for using the Ticket Booking System! ");
+                        System.exit(0);
+                        break;
+                } // switch statement in if statement
+            } else {
+                System.out.println("Please select one of the options.");
+            }
+        }
     }
 
     /** [1] RESERVE MOVIE TICKET
@@ -225,11 +229,30 @@ public class TicketBookingSimulation {
 
      */
     public static void ReserveMovieTicket() {
+        Scanner rsrv = new Scanner(System.in);
+        int[] listOfMovies = { 1,2,3,4 };
         System.out.println("Available Movies:");
         System.out.println("[1] Action Blast");
         System.out.println("[2] Comedy Hour");
-        System.out.println("[3] Drama Nightsdfdf");
+        System.out.println("[3] Drama Nights");
         System.out.println("[4] Sci-Fi Saga");
+        while (true) {
+            System.out.print("Select a movie: ");
+            int choice = Integer.parseInt(rsrv.nextLine());
+            if (choice == 1 || choice == 2 || choice == 3 || choice == 4) {
+                ReserveSeats();
+            } else {
+                System.out.println("Please choose from one of the options.");
+            }
+        }
+    }
+
+    public static void ReserveSeats() {
+        String[] seats = { "VACANT", "VACANT", "VACANT", "VACANT", "VACANT",
+                        "VACANT", "VACANT", "VACANT", "VACANT", "VACANT",};
+        System.out.println("Available Seats:");
+        System.out.println("\t|\t[1] " + seats[0] + "\t|\t[2] " + seats[1] + "\t|\t[3] " + seats[2] + "\t|\t[4] " + seats[3] + "\t|\t[5] " + seats[4]);
+        System.out.println("\t|\t[6] " + seats[5] + "\t|\t[7] " + seats[6] + "\t|\t[8] " + seats[7] + "\t|\t[9] " + seats[8] + "\t|\t[10] " + seats[9]);
 
     }
 
