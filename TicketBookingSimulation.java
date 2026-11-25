@@ -228,7 +228,7 @@ public class TicketBookingSimulation {
         System.out.println("Available Movies:");
         System.out.println("[1] Action Blast");
         System.out.println("[2] Comedy Hour");
-        System.out.println("[3] Drama Nights");
+        System.out.println("[3] Drama Nightsdfdf");
         System.out.println("[4] Sci-Fi Saga");
 
     }
